@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movie Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .movie-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .movie-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .movie-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #61dafb;
+    }
+    .movie-tagline {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #aaa;
+    }
+    .movie-vote {
+      font-weight: bold;
+      color: #21d07a;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Movie Website</h1>
+  
+  <div class="movie-container" id="movieContainer">
+    <!-- Movie cards will go here -->
+  </div>
+
+  <script>
+    // Movie data array
+    const movies = [
+      {
+        title: "Inception",
+        tagline: "Your mind is the scene of the crime.",
+        vote_average: 8.8
+      },
+      {
+        title: "The Dark Knight",
+        tagline: "Why so serious?",
+        vote_average: 9.0
+      },
+      {
+        title: "Interstellar",
+        tagline: "Mankind was born on Earth. It was never meant to die here.",
+        vote_average: 8.6
+      }
+    ];
+
+    const container = document.getElementById('movieContainer');
+
+    // Function to create movie cards
+    function displayMovies(movies) {
+      movies.forEach(movie => {
+        const card = document.createElement('div');
+        card.classList.add('movie-card');
+        
+        card.innerHTML = `
+          <div class="movie-title">${movie.title}</div>
+          <div class="movie-tagline">${movie.tagline}</div>
+          <div class="movie-vote">Rating: ${movie.vote_average}</div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    displayMovies(movies);
+  </script>
+</body>
+</html>
